@@ -1,9 +1,4 @@
-import reducer from './reducer'
-import CustomProvider from './CustomProvider'
-import * as gameActions from './game/actions'
-
-export default {
-    reducer,
-    CustomProvider,
-    gameActions
-}
+import * as gActions from './game/actions';
+export { default as reducer } from './reducer';
+export { default as CustomProvider } from './CustomProvider';
+export const gameActions = gActions;

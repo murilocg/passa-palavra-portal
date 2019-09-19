@@ -1,4 +1,2 @@
-import * as QuizController from './quizController'
-export default {
-    QuizController
-}
+import * as QController from './quizController';
+export const QuizController = QController;

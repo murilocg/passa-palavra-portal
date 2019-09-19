@@ -1,5 +1,2 @@
-import * as QuizModel from './quizModel'
-
-export default {
-    QuizModel
-}
+import * as QModel from './quizModel';
+export const QuizModel = QModel;

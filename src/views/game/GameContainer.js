@@ -1,11 +1,17 @@
-import {QuizController} from '../../controller'
-import { connect } from 'react-redux'
+import { QuizController } from '../../controller';
+import { connect } from 'react-redux';
 import Game from './Game';
 
-const mapStateToProps  = (state) => ({})
+const mapDispatchToProps = dispatch => ({
+  initGame: () => dispatch(QuizController.initGame())
+});
 
-const mapDispatchToProps  = dispatch => ({
-    nextQuestion: () => dispatch(QuizController.nextQuestion())
-})
+const mapStateToProps = state => ({
+  question: state.game.activeQuestion,
+  endOfGame: state.game.endOfGame
+});
 
-export default connect(mapStateToProps, mapDispatchToProps )(Game)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Game);
