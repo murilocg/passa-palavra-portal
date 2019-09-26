@@ -54,32 +54,6 @@ module.exports = (Sequelize, DataTypes) => {
           as: 'user',
           foreignKey: 'user_id'
       });
-
-      quiz.hasMany(model.Avaliation, {
-          as: 'avaliations',
-          foreignKey: 'evaluated_id'
-      });
-
-      quiz.hasMany(model.Hiring, {
-          as: 'hirings',
-          foreignKey: 'professional_id'
-      });
-
-      quiz.hasMany(model.Event, {
-          as: 'events',
-          foreignKey: 'contractor_id'
-      });
-
-      quiz.hasMany(model.Fcm, {
-          as: 'fcms',
-          foreignKey: 'user_id'
-      });
-
-    /*   quiz.hasMany(model.Contract, {
-          as: 'contracts',
-          foreignKey: 'contractor_id'
-      });
-*/
   };
 
   return quiz;
