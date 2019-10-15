@@ -1,4 +1,4 @@
-import * as actions from './actions';
+import gameActions from './gameActions';
 
 const DEFAULT_STATE = {
   quizId: 0,
@@ -14,15 +14,15 @@ const DEFAULT_STATE = {
 
 const gameReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
-    case actions.SET_ACTIVE_QUESTION:
+    case gameActions.SET_ACTIVE_QUESTION:
       return { ...state, activeQuestion: { ...action.activeQuestion } };
-    case actions.SET_QUESTIONS:
+    case gameActions.SET_QUESTIONS:
       return { ...state, questions: { ...action.questions } };
-    case actions.SET_END_OF_GAME:
+    case gameActions.SET_END_OF_GAME:
       return { ...state, endOfGame: action.endOfGame };
-    case actions.SET_QUIZ:
+    case gameActions.SET_QUIZ:
       return { ...state, quizId: action.quiz };
-    case actions.SET_SCORE:
+    case gameActions.SET_SCORE:
       return { ...state, score: action.score };
     default:
       return { ...state };

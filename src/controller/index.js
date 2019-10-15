@@ -1,2 +1,2 @@
-import * as QController from './quizController';
-export const QuizController = QController;
+export { default as gameController } from './game/gameController';
+export { default as CustomProvider } from './CustomProvider';

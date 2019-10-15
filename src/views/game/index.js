@@ -1,9 +1,9 @@
-import { QuizController } from '../../controller';
+import { gameController } from '../../controller';
 import { connect } from 'react-redux';
 import Game from './Game';
 
 const mapDispatchToProps = dispatch => ({
-  initGame: () => dispatch(QuizController.initGame())
+  initGame: () => dispatch(gameController.initGame())
 });
 
 const mapStateToProps = state => ({

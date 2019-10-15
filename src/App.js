@@ -1,11 +1,11 @@
 import React from 'react';
-import GameContainer from './views/game/GameContainer';
-import { CustomProvider } from './redux';
+import { Game } from './views';
+import { CustomProvider } from './controller';
 
 function App() {
   return (
     <CustomProvider>
-      <GameContainer />
+      <Game />
     </CustomProvider>
   );
 }
