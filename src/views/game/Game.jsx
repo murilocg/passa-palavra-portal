@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import AnswerContainer from './AnswerContainer';
 import QuestionsContainer from './QuestionsContainer';
 import LabelQuestion from './LabelQuestion';
-import './css/game.css';
 import ScoreContainer from './ScoreContainer';
+import './css/game.css';
 
 class Game extends Component {
   componentDidMount() {

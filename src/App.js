@@ -1,13 +1,11 @@
 import React from 'react';
-import { Game } from './views';
 import { CustomProvider } from './controller';
+import Views from './views';
 
-function App() {
-  return (
-    <CustomProvider>
-      <Game />
-    </CustomProvider>
-  );
-}
+const App = () => (
+  <CustomProvider>
+    <Views />
+  </CustomProvider>
+);
 
 export default App;
