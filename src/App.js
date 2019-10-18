@@ -1,13 +1,11 @@
 import React from 'react';
-import GameContainer from './views/game/GameContainer';
-import { CustomProvider } from './redux';
+import { CustomProvider } from './controller';
+import Views from './views';
 
-function App() {
-  return (
-    <CustomProvider>
-      <GameContainer />
-    </CustomProvider>
-  );
-}
+const App = () => (
+  <CustomProvider>
+    <Views />
+  </CustomProvider>
+);
 
 export default App;

@@ -1,10 +1,10 @@
-import { QuizController } from '../../controller';
+import { gameController } from '../../controller';
 import { connect } from 'react-redux';
 import Answer from './Answer';
 
 const mapDispatchToProps = dispatch => ({
-  answerQuestion: answer => dispatch(QuizController.answerQuestion(answer)),
-  skipword: () => dispatch(QuizController.skipword())
+  answerQuestion: answer => dispatch(gameController.answerQuestion(answer)),
+  skipword: () => dispatch(gameController.skipword())
 });
 
 const mapStateToProps = () => ({});

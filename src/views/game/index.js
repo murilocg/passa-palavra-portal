@@ -1,9 +1,9 @@
-import { QuizController } from '../../controller';
+import { gameController } from '../../controller';
 import { connect } from 'react-redux';
 import Game from './Game';
-
+import { withTemplate } from '../components/template';
 const mapDispatchToProps = dispatch => ({
-  initGame: () => dispatch(QuizController.initGame())
+  initGame: () => dispatch(gameController.initGame())
 });
 
 const mapStateToProps = state => ({
@@ -11,7 +11,9 @@ const mapStateToProps = state => ({
   endOfGame: state.game.endOfGame
 });
 
-export default connect(
+const Component = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Game);
+
+export default withTemplate(Component);

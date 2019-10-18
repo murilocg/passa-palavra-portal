@@ -1,2 +1,2 @@
-import * as QModel from './quizModel';
-export const QuizModel = QModel;
+export { default as quizModel } from './quizModel';
+export { default as perguntaModel } from './perguntaModel';
