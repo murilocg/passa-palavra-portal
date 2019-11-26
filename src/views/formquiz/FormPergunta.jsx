@@ -10,7 +10,34 @@ import {
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import style from './style';
-const alfabeto = ['A', 'B', 'C'];
+const alfabeto = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'X',
+  'Y',
+  'Z'
+];
 
 class FormPergunta extends Component {
   constructor(props) {
@@ -58,6 +85,7 @@ class FormPergunta extends Component {
             <TextField
               className={classes.input}
               label='pergunta'
+              value={this.state.pergunta}
               onChange={this.onChangePergunta}
             />
           </Grid>
