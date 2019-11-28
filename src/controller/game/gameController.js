@@ -1,6 +1,7 @@
 import gameActions from './gameActions';
 import { quizModel } from '../../model';
 import { updateList, defaultQuestions } from '../utils';
+import history from '../../shared/history';
 
 class GameController {
   answerQuestion = answer => async (dispatch, getState) => {
@@ -24,6 +25,7 @@ class GameController {
     const letter = question && question.letter;
     const quiz = getState().game.quizId;
     const newQuestion = await quizModel.nextQuestion(quiz, letter);
+    await dispatch(this.setCount(5));
     if (newQuestion) dispatch(gameActions.setActiveQuestion(newQuestion));
     else dispatch(gameActions.setEndOfGame(true));
   };
@@ -39,13 +41,25 @@ class GameController {
     await dispatch(this.nextQuestion());
   };
 
-  initGame = () => async dispatch => {
+  initGame = (quizId, tempo) => async dispatch => {
     dispatch(gameActions.setScore({ hits: 0, mistakes: 0, skiped: 0 }));
-    await dispatch(gameActions.setQuiz(1));
+    console.log(quizId);
+    await dispatch(gameActions.setQuiz(quizId));
+    await dispatch(gameActions.setTempo(tempo === 'com_tempo'));
     await dispatch(gameActions.setQuestions(defaultQuestions()));
     await dispatch(gameActions.setActiveQuestion(undefined));
     await dispatch(gameActions.setEndOfGame(false));
     await dispatch(this.nextQuestion());
+    history.push('/game');
+  };
+
+  loadQuizzes = () => async dispatch => {
+    const quizzes = await quizModel.loadQuizzes();
+    dispatch(gameActions.setQuizzes(quizzes));
+  };
+
+  setCount = count => async dispatch => {
+    dispatch(gameActions.setCount(count));
   };
 }
 export default new GameController();

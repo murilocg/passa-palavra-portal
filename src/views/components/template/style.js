@@ -5,7 +5,8 @@ const styles = makeStyles({
     background: '#2c3e50'
   },
   menuItem: {
-    margin: '0px 10px'
+    margin: '0px 10px',
+    padding: '0px 10px'
   },
   btnJogar: {
     background: '#18bc9c'

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
+import history from '../../shared/history';
 
 const Score = props => {
   return (
@@ -22,7 +23,7 @@ const Score = props => {
         </Grid>
       </Grid>
       <Grid className='title-end-game' container justify='center'>
-        <button className='btn-answer' onClick={() => props.initGame()}>
+        <button className='btn-answer' onClick={() => history.push('/')}>
           Jogar Novamente
         </button>
       </Grid>

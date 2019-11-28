@@ -9,6 +9,9 @@ const DEFAULT_STATE = {
     mistakes: 0,
     skiped: 0
   },
+  count: 5,
+  tempo: false,
+  quizzes: [],
   questions: {}
 };
 
@@ -24,6 +27,12 @@ const gameReducer = (state = DEFAULT_STATE, action) => {
       return { ...state, quizId: action.quiz };
     case gameActions.SET_SCORE:
       return { ...state, score: action.score };
+    case gameActions.SET_QUIZZES:
+      return { ...state, quizzes: action.quizzes };
+    case gameActions.SET_TEMPO:
+      return { ...state, tempo: action.tempo };
+    case gameActions.SET_COUNT:
+      return { ...state, count: action.count };
     default:
       return { ...state };
   }

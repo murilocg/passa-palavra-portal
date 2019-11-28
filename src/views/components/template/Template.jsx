@@ -10,6 +10,8 @@ import history from '../../../shared/history';
 
 const Template = props => {
   const classes = styles();
+  const token = sessionStorage.getItem('TOKEN');
+  const nome = sessionStorage.getItem('NOME');
   return (
     <div>
       <AppBar position='static'>
@@ -29,23 +31,31 @@ const Template = props => {
                     Jogar!
                   </Button>
                 </Grid>
-                <Grid
-                  item
-                  className={classes.menuItem}
-                  onClick={() => history.push('/manager/quiz')}
-                >
-                  <Typography variant='h6'>Quiz</Typography>
-                </Grid>
+                {token && (
+                  <Grid
+                    item
+                    className={classes.menuItem}
+                    onClick={() => history.push('/manager/quiz')}
+                  >
+                    <Typography variant='h6'>Quiz</Typography>
+                  </Grid>
+                )}
                 <Grid item className={classes.menuItem}>
                   <Grid container alignItems='center'>
                     <Grid item>
-                      <Typography variant='h6'>Usuario</Typography>
+                      <Typography variant='h6'>{nome ? nome : ''}</Typography>
                     </Grid>
-                    <Grid item>
-                      <IconButton>
-                        <AccountCircle className={classes.iconUser} />
-                      </IconButton>
-                    </Grid>
+                    {!token ? (
+                      <Grid item onClick={() => history.push('/login')}>
+                        <Typography variant='h6'>Login</Typography>
+                      </Grid>
+                    ) : (
+                      <Grid item>
+                        <IconButton>
+                          <AccountCircle className={classes.iconUser} />
+                        </IconButton>
+                      </Grid>
+                    )}
                   </Grid>
                 </Grid>
               </Grid>

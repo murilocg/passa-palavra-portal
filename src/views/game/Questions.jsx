@@ -1,14 +1,19 @@
 import React from 'react';
+import Counter from './Counter';
 
 const calcRotation = i => {
   return 270 + (360 / 26) * i;
 };
 const Questions = props => {
-  const { questions, activeQuestion } = props;
+  const { questions, activeQuestion, tempo, count } = props;
   const letters = Object.keys(questions);
   return (
     <div className='question-container'>
-      <img src='profile.png' alt='user avatar' />
+      {tempo ? (
+        <Counter count={count} />
+      ) : (
+        <img className='centro' src='profile.png' alt='user avatar' />
+      )}
       {letters.map((l, i) => {
         const q = questions[l];
         return (

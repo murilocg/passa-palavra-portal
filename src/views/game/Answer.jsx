@@ -9,6 +9,7 @@ const Answer = props => {
   const answerQuestion = async () => {
     if (answer !== '') {
       await props.answerQuestion(answer);
+      props.cleanCount();
       setAnswer('');
     }
   };
@@ -19,6 +20,7 @@ const Answer = props => {
 
   const skipword = async () => {
     await props.skipword();
+    props.cleanCount();
     focus();
   };
 

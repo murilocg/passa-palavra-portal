@@ -1,9 +1,10 @@
-import { connect } from 'react-redux'
-import Questions from './Questions'
+import { connect } from 'react-redux';
+import Questions from './Questions';
 
-const mapStateToProps  = (state) => ({
-    questions: state.game.questions,
-    activeQuestion: state.game.activeQuestion
-})
+const mapStateToProps = state => ({
+  questions: state.game.questions,
+  tempo: state.game.tempo,
+  activeQuestion: state.game.activeQuestion
+});
 
-export default connect(mapStateToProps)(Questions)
+export default connect(mapStateToProps)(Questions);
